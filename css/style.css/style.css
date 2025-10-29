@@ -1,0 +1,275 @@
+/* === General Reset === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  display: flex;
+  background: #f4f7fa;
+  color: #222;
+  min-height: 100vh;
+}
+
+/* === Sidebar === */
+.sidebar {
+  width: 240px;
+  background: #1e293b;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.5rem;
+  position: fixed;
+  height: 100vh;
+  box-shadow: 3px 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.sidebar h2 {
+  text-align: center;
+  color: #38bdf8;
+  font-size: 1.4rem;
+  margin-bottom: 1.5rem;
+}
+
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar li {
+  margin: 1rem 0;
+}
+
+.sidebar a {
+  text-decoration: none;
+  color: #e2e8f0;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.sidebar a:hover,
+.sidebar a.active {
+  color: #38bdf8;
+  text-shadow: 0 0 5px #38bdf8;
+}
+
+.sidebar .footer {
+  font-size: 0.9rem;
+  text-align: center;
+  opacity: 0.8;
+}
+
+/* === Main Content === */
+.main-content {
+  margin-left: 260px;
+  flex: 1;
+  padding: 0;
+}
+
+/* === Hero Section === */
+.hero {
+  height: 70vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0,0,0,0.5)), url('banner.jpg') center/cover no-repeat;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  animation: fadeIn 1.2s ease;
+}
+
+.hero-text {
+  max-width: 700px;
+}
+
+.hero-text h1 {
+  font-size: 2.5rem;
+  line-height: 1.3;
+}
+
+.hero-text span {
+  color: #38bdf8;
+}
+
+.hero-text p {
+  margin-top: 1rem;
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.6rem 1.2rem;
+  background: #38bdf8;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #0ea5e9;
+  transform: translateY(-3px);
+}
+
+/* === Activities Section === */
+.activities {
+  padding: 3rem;
+  background: #f8fafc;
+}
+
+.activities h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #1e293b;
+}
+
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
+
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 1rem;
+}
+
+.card-content h3 {
+  color: #0f172a;
+  margin-bottom: 0.5rem;
+}
+
+.card-content p {
+  color: #475569;
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+.btn-card {
+  background: #38bdf8;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.btn-card:hover {
+  background: #0ea5e9;
+}
+
+/* === Animations === */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* === Responsive === */
+@media (max-width: 768px) {
+  .sidebar {
+    position: relative;
+    width: 100%;
+    height: auto;
+    box-shadow: none;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .main-content {
+    margin-left: 0;
+  }
+
+  .hero {
+    height: 50vh;
+  }
+}
+/* Hero Section */
+.hero {
+  position: relative;
+  height: 90vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+  margin-bottom: 3rem;
+}
+
+.hero .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(2px);
+}
+
+.hero-text {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: #fff;
+  max-width: 700px;
+  animation: fadeInUp 1.5s ease-in-out;
+}
+
+.hero-text h1 {
+  font-size: 2.8rem;
+  margin-bottom: 1rem;
+}
+
+.hero-text p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.btn {
+  background: #00d084;
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #00a86b;
+  transform: scale(1.05);
+}
+
+/* Fade-in Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

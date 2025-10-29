@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FT-IV Portfolio | Renewable Energy Activities</title>
+
+  <style>
+    :root {
+      --bg: #e8f1f9;
+      --text: #1a1a1a;
+      --card-bg: #fff;
+      --accent: #00bcd4;
+      --header-bg: linear-gradient(135deg, #003366, #0055a5);
+      --footer-bg: #003366;
+      --sidebar-bg: linear-gradient(180deg, #002b4d, #004c80);
+    }
+
+    [data-theme="dark"] {
+      --bg: #101820;
+      --text: #f5f5f5;
+      --card-bg: #1c2733;
+      --accent: #00e5ff;
+      --header-bg: linear-gradient(135deg, #001f33, #004c6d);
+      --footer-bg: #001f33;
+      --sidebar-bg: linear-gradient(180deg, #001a33, #003a66);
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--text);
+      transition: background 0.4s ease, color 0.4s ease;
+      display: flex;
+      min-height: 100vh;
+    }
+
+    /* ===== Sidebar ===== */
+    .sidebar {
+      width: 250px;
+      background: var(--sidebar-bg);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem 1rem;
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      box-shadow: 3px 0 15px rgba(0, 0, 0, 0.3);
+      transition: all 0.4s ease;
+      z-index: 100;
+    }
+
+    .sidebar h1 {
+      font-size: 1.3rem;
+      margin-bottom: 2rem;
+      text-align: center;
+      letter-spacing: 1px;
+    }
+
+    .sidebar a {
+      color: white;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+      padding: 10px 15px;
+      border-radius: 10px;
+      transition: background 0.3s ease, transform 0.2s ease;
+      font-weight: 500;
+    }
+
+    .sidebar a:hover {
+      background: rgba(255, 255, 255, 0.1);
+      transform: scale(1.05);
+    }
+
+    .sidebar .toggle-theme {
+      margin-top: auto;
+      background: var(--accent);
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+
+    .sidebar .toggle-theme:hover {
+      background: #0097a7;
+      transform: scale(1.05);
+    }
+
+    /* ===== Main Content ===== */
+    .main-content {
+      margin-left: 260px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background: var(--header-bg);
+      color: white;
+      text-align: center;
+      padding: 2.5rem 1rem;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+      position: relative;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+      letter-spacing: 1px;
+    }
+
+    header p {
+      margin-top: 0.5rem;
+      font-size: 1rem;
+      color: #dce7f7;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 2rem auto;
+      padding: 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.4s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 20px;
+      text-align: center;
+    }
+
+    .card-content h2 {
+      color: var(--accent);
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .card-content p {
+      font-size: 0.95rem;
+      color: var(--text);
+      line-height: 1.4;
+    }
+
+    .card-content a {
+      display: inline-block;
+      margin-top: 1rem;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      transition: background 0.3s;
+    }
+
+    .card-content a:hover {
+      background: #0097a7;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      background: var(--footer-bg);
+      color: #fff;
+      font-size: 0.9rem;
+      margin-top: auto;
+      transition: background 0.4s ease;
+    }
+
+    @media (max-width: 800px) {
+      .sidebar {
+        position: fixed;
+        width: 100%;
+        height: auto;
+        flex-direction: row;
+        justify-content: space-around;
+        padding: 10px;
+      }
+      .main-content {
+        margin-left: 0;
+        margin-top: 100px;
+      }
+      .sidebar h1 {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="sidebar">
+    <h1>⚡ FT-IV Portfolio</h1>
+    <a href="index.html">🏠 Home</a>
+    <a href="activity1.html">🔋 Activity 1</a>
+    <a href="activity2.html">🌊 Activity 2</a>
+    <a href="activity3.html">🔥 Activity 3</a>
+    <button class="toggle-theme" onclick="toggleTheme()">🌗 Toggle Theme</button>
+  </div>
+
+  <div class="main-content">
+    <header>
+      <h1>🌍 FT-IV Renewable Energy Portfolio</h1>
+      <p>Designed by [Your Name] | 2025</p>
+    </header>
+
+    <section class="container">
+      <div class="card">
+        <img src="images/a1 cng.png" alt="Hybrid Renewable System">
+        <div class="card-content">
+          <h2>⚡ Activity 1</h2>
+          <p>Hybrid Renewable System (Wind + Biogas) to power a rural school continuously during power cuts.</p>
+          <a href="activity1.html">View Activity</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="images/a2 cng.png" alt="Wave Energy Desalination">
+        <div class="card-content">
+          <h2>🌊 Activity 2</h2>
+          <p>Wave energy-powered desalination unit that provides fresh water for coastal villages.</p>
+          <a href="activity2.html">View Activity</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="images/a3 cng.png" alt="Geothermal Heat Recovery">
+        <div class="card-content">
+          <h2>🔥 Activity 3</h2>
+          <p>Simple geothermal power plant design using underground heat to generate electricity sustainably.</p>
+          <a href="activity3.html">View Activity</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      © 2025 | FT-IV Project Portfolio | Created by [Your Name]
+    </footer>
+  </div>
+
+  <script>
+    function toggleTheme() {
+      const currentTheme = document.documentElement.getAttribute("data-theme");
+      if (currentTheme === "dark") {
+        document.documentElement.removeAttribute("data-theme");
+        localStorage.setItem("theme", "light");
+      } else {
+        document.documentElement.setAttribute("data-theme", "dark");
+        localStorage.setItem("theme", "dark");
+      }
+    }
+
+    (function() {
+      const savedTheme = localStorage.getItem("theme");
+      if (savedTheme === "dark") {
+        document.documentElement.setAttribute("data-theme", "dark");
+      }
+    })();
+  </script>
+</body>
+</html>
